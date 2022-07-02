@@ -40,10 +40,10 @@ const Navbar = () => {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Iniciar Sesión</a>
+          <Link className="nav-link " to='iniciar' >Iniciar Sesión</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Registrate</a>
+          <Link className="nav-link" to='registrar'>Registrate</Link>
         </li>
       </ul>
     </div>

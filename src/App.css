@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  background-color: #61dafb;
+  height: 100vh;
+
 }
 
 .App-logo {
@@ -13,9 +15,7 @@
   }
 }
 
-.fondo{
-  background-color: #61dafb;
-}
+
 
 .App-header {
   background-color: #282c34;

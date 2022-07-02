@@ -1,9 +1,11 @@
 import React from 'react'
 import Cards from './Cards'
 
+
 import boku1 from '../Imagenes/boku.jpg'
 import magia1 from '../Imagenes/magia.jpg'
 import muerto1 from '../Imagenes/muerto.jpg'
+
 
 const cards = [
   {
@@ -27,7 +29,7 @@ const cards = [
 
 const Inicio = () => {
   return (
-    <div className="container d-flex justify-content-center align-items-center h-100">
+    <div className="container d-flex justify-content-center align-items-center h-75 ">
       <div className="row">
         <div className="col-md-3">
           <Cards/>
