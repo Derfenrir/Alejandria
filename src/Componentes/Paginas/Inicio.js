@@ -10,39 +10,42 @@ import muerto1 from '../Imagenes/muerto.jpg'
 const cards = [
   {
     id: 1,
-    title: 'Fazt Web',
-    image: boku1
+    title: 'Boku No hero',
+    image: boku1,
+    url: 'https://lectortmo.com/library/manga/127/boku-no-hero-academia',
+    text: 'Este es un buen manga'
 
   },
   {
     id: 2,
     title: 'Magia',
-    image: magia1
+    image: magia1,
+    url: 'https://lectortmo.com/library/manhwa/41571/a-returners-magic-should-be-special',
+    text: 'Algo ira aqui, mas adelante por ahora no'
   },
   {
     id:3,
-    title: 'Muerto',
-    image: muerto1
+    title: 'Death',
+    image: muerto1,
+    url:'https://lectortmo.com/library/manga/41746/mieruko-chan',
+    text: 'Descripcion pendiente'
   }
 ]
 
 
 const Inicio = () => {
   return (
-    <div className="container d-flex justify-content-center align-items-center h-75 ">
+  
+    <div className="container d-flex justify-content-center align-items-center  h-75 ">
       <div className="row">
-        <div className="col-md-3">
-          <Cards/>
-      </div>
-      <div className="col-md-3">
-          <Cards/>
-      </div>
-      <div className="col-md-3">
-          <Cards/>
-      </div>
-      <div className="col-md-3">
-          <Cards/>
-      </div>
+        {
+            cards.map((card) => (
+              <div className="col-md-4" key={card.id}>
+            <Cards title={card.title} imageSource={card.image} url={card.url} text={card.text}/>
+          </div>
+          ))
+        }
+     
 
     </div>
     </div>

@@ -1,24 +1,40 @@
 import React from 'react'
-import Card from './Cards.css'
-import boku1 from '../Imagenes/boku.jpg'
+import Diseño from './Cards.css'
+import PropTypes from 'prop-types'
 
-function Cards() {
+
+
+function Cards({title, imageSource, text, url}) {
   return (
     <div>
-        <div className="card"  >
-          <img src={boku1} width="200 px" height="220 px" />
-          <div className="card-body">
-                <h6 className="card-title">Boku no Hero</h6>
+      <h1>Actualizaciones</h1>
+        <div className="card text-center bg-dark animate__animated animate__fadeInUp "  >
+         
+          <div className="overflow">
+          <img src={imageSource} height="220" width="200" className="card-img-top"/>
+          </div>
+
+          <div className="card-body text-light">
+                <h4 className="card-title">{title}</h4>
                 <p className="card-text">
-                Some quick example text to build on the card title and make up the bulk of the card's content.
+                {
+                  text ? text : 'Hola como estas, yo estoy bien'
+                }
                 </p>
-                <a href='#!' className="btn btn-outline-secondary">
+                <a href={url} className="btn btn-outline-secondary rounded-0 text-light" target="_blank">
                     Leer mas
                 </a>
           </div>
         </div>
     </div>
   )
+}
+
+Cards.propTypes ={
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string,
+  imageSource:PropTypes.string,
+  text: PropTypes.string
 }
 
 export default Cards
