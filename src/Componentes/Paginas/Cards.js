@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 function Cards({title, imageSource, text, url}) {
   return (
     <div>
-      <h1>Actualizaciones</h1>
+      <h1 >Actualizaciones</h1>
         <div className="card text-center bg-dark animate__animated animate__fadeInUp "  >
          
           <div className="overflow">

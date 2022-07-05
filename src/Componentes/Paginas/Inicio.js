@@ -5,6 +5,7 @@ import Cards from './Cards'
 import boku1 from '../Imagenes/boku.jpg'
 import magia1 from '../Imagenes/magia.jpg'
 import muerto1 from '../Imagenes/muerto.jpg'
+import image1 from '../Imagenes/image1.jpg'
 
 
 const cards = [
@@ -29,6 +30,14 @@ const cards = [
     image: muerto1,
     url:'https://lectortmo.com/library/manga/41746/mieruko-chan',
     text: 'Descripcion pendiente'
+  },
+
+  {
+    id:4,
+    title: 'tensei shitara dai nana',
+    image: image1,
+    url:'https://lectortmo.com/library/manga/12223/tensei-shitara-slime-datta-ken',
+    text: 'Reencarnacion'
   }
 ]
 
@@ -40,7 +49,7 @@ const Inicio = () => {
       <div className="row">
         {
             cards.map((card) => (
-              <div className="col-md-4" key={card.id}>
+              <div className="col-md-3" key={card.id}>
             <Cards title={card.title} imageSource={card.image} url={card.url} text={card.text}/>
           </div>
           ))
