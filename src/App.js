@@ -7,6 +7,7 @@ import Inicio from './Componentes/Paginas/Inicio'
 import Iniciar from './Componentes/Paginas/Iniciar'
 import Registrar from './Componentes/Paginas/Registrar'
 import Mostrar from './Componentes/Paginas/Mostrar';
+import Rlibro from './Componentes/Paginas/Rlibro';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/iniciar' element={<Iniciar/>}/>
         <Route path='/registrar' element={<Registrar/>}/>
         <Route path='/mostrar' element={<Mostrar/>}/>
+        <Route path='/rlibro' element={<Rlibro/>}/>
       </Routes>
       <Footer/>
     </Router>
