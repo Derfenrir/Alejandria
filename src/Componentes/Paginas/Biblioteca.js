@@ -1,12 +1,18 @@
 import React,{useState,useEffect} from "react";
-
 import Axios from "../../Services/ConexionAxios";
+import Diseño from './Cards.css';
+
+import {useNavigate} from "react-router-dom";
+
 
 
 
 function Biblioteca() {
 
   const [biblioteca,setBiblioteca]=useState([]);
+  const [ubicacion, setUbicacion]=useState([]);
+
+const navigate=useNavigate();
 
   const Consultar=async()=>{
     const consulta=await Axios.get('/libro/consultar');
@@ -14,15 +20,12 @@ function Biblioteca() {
    // console.log(consulta.data);
   }
 
-  const Eliminar=async(id)=>{
-
-    if(window.confirm("¿Esta segure de eliminar el date?")){
-      await Axios.delete(`/persona/eliminar/${id}`);
-      console.log('Datos eliminados correctamente');
-    }
-   
-    Consultar();
+  const consultaId=async(id)=>{
+const buscar=await Axios.get(`/temas/consultarOne/${id}`);
+setUbicacion(buscar.data);
   }
+
+  
 
   useEffect(() => {
    Consultar();
@@ -30,33 +33,40 @@ function Biblioteca() {
   }, [])
   
   return (
-   
-<div className="container-fluid p-2">
-<div class="row">
-  {biblioteca.map((biblioteca,index)=>{
-    return(
-<div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{biblioteca.nombre}</h5>
-        <h5 >{biblioteca.img} </h5>
-        <p class="card-text">{biblioteca.id}</p>
-        <p class="card-text">{biblioteca.autor}</p>
-        <a href="#" class="btn btn-primary">Ir a</a>
-        <button type="button" class="btn btn-danger" onClick={()=>Eliminar(biblioteca._id)}>Eliminar</button>
-      </div>
+  
+    <div className="container-fluid p-2 justify-content-center align-items-center  h-105 ">
+      <div className="row">
+        {biblioteca.map((biblioteca) => {
+              return(
+                <div className="col-md-3" key={biblioteca.id}>
+                    <div className="card text-center bg-dark animate__animated animate__fadeInUp "  >
+                     
+                      <div className="overflow">
+                      <img src={biblioteca.img} height="220" width="200" className="card-img-top"/>
+                      </div>
+            
+                      <div className="card-body text-light">
+                            <h4 className="card-title">{biblioteca.nombre}</h4>
+                            <p className="card-text">{biblioteca.autor}</p>
+                            <button type="button" class="btn btn-primary" onClick={()=>navigate(`/naruto/${ubicacion._id}`)}>
+                            <i class="material-icons">Leer ...</i></button>
+                 
+                
+
+                      </div>
+                    </div>
+                    </div>
+              )
+                          })}
+     
+
     </div>
-  </div>
-    )
-  })} 
- 
-</div>
+    </div>
 
-<hr/>
-
-
-</div>
+    
   );
+  
 }
+
 
 export default Biblioteca;

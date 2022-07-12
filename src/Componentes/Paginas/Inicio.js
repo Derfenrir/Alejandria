@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useState,useEffect} from "react";
+import Axios from "../../Services/ConexionAxios";
 import Cards from './Cards'
 
 
@@ -34,24 +35,41 @@ const cards = [
 
   {
     id:4,
-    title: 'tensei shitara dai nana',
-    image: image1,
+   
     url:'https://lectortmo.com/library/manga/12223/tensei-shitara-slime-datta-ken',
-    text: 'Reencarnacion'
+   
   }
 ]
 
 
 const Inicio = () => {
+  const [biblioteca,setBiblioteca]=useState([]);
+
+  const Consultar=async()=>{
+    const consulta=await Axios.get('/libro/consultar');
+    setBiblioteca(consulta.data);
+   // console.log(consulta.data);
+  }
+
+  
+
+  useEffect(() => {
+   Consultar();
+   
+  }, [])
+  
   return (
   
     <div className="container d-flex justify-content-center align-items-center  h-75 ">
       <div className="row">
         {
-            cards.map((card) => (
-              <div className="col-md-3" key={card.id}>
-            <Cards title={card.title} imageSource={card.image} url={card.url} text={card.text}/>
+            biblioteca.map((biblioteca) => (
+              <div className="col-md-3" key={biblioteca.id}>
+            <Cards  imageSource={biblioteca.img}  title={biblioteca.nombre} text={biblioteca.autor}/>
           </div>
+
+          
+           
           ))
         }
      

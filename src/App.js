@@ -9,6 +9,8 @@ import Registrar from './Componentes/Paginas/Registrar'
 import Mostrar from './Componentes/Paginas/Mostrar';
 import Rlibro from './Componentes/Paginas/Rlibro';
 
+import Naruto from './Componentes/Libros/Naruto';
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +23,7 @@ function App() {
         <Route path='/registrar' element={<Registrar/>}/>
         <Route path='/mostrar' element={<Mostrar/>}/>
         <Route path='/rlibro' element={<Rlibro/>}/>
+        <Route path='/naruto' element={<Naruto/>}/>
       </Routes>
       <Footer/>
     </Router>

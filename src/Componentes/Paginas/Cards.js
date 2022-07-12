@@ -1,10 +1,11 @@
 import React from 'react'
+
 import Diseño from './Cards.css'
-import PropTypes from 'prop-types'
 
 
 
-function Cards({title, imageSource, text, url}) {
+function Cards({url, text, title, imageSource}) {
+ 
   return (
     <div>
       <h1 >Actualizaciones</h1>
@@ -18,7 +19,7 @@ function Cards({title, imageSource, text, url}) {
                 <h4 className="card-title">{title}</h4>
                 <p className="card-text">
                 {
-                  text ? text : 'Hola como estas, yo estoy bien'
+                  text ? text: 'biblioteca.nombre'
                 }
                 </p>
                 <a href={url} className="btn btn-outline-secondary rounded-0 text-light" target="_blank">
@@ -30,11 +31,5 @@ function Cards({title, imageSource, text, url}) {
   )
 }
 
-Cards.propTypes ={
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string,
-  imageSource:PropTypes.string,
-  text: PropTypes.string
-}
 
 export default Cards
