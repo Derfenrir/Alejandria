@@ -8,6 +8,9 @@ import Iniciar from './Componentes/Paginas/Iniciar'
 import Registrar from './Componentes/Paginas/Registrar'
 import Mostrar from './Componentes/Paginas/Mostrar';
 import Rlibro from './Componentes/Paginas/Rlibro';
+import Capitulo1 from './Componentes/Libros/capitulo1';
+import Capitulo2 from './Componentes/Libros/Capitulo2';
+import Capitulo3 from './Componentes/Libros/Capitulo3';
 
 import Naruto from './Componentes/Libros/Naruto';
 
@@ -23,7 +26,10 @@ function App() {
         <Route path='/registrar' element={<Registrar/>}/>
         <Route path='/mostrar' element={<Mostrar/>}/>
         <Route path='/rlibro' element={<Rlibro/>}/>
-        <Route path='/naruto' element={<Naruto/>}/>
+        <Route path='/naruto/:id' element={<Naruto/>}/>
+        <Route path='/cap1' element={<Capitulo1/>}/>
+        <Route path='/cap2' element={<Capitulo2/>}/>
+        <Route path='/cap3' element={<Capitulo3/>}/>
       </Routes>
       <Footer/>
     </Router>

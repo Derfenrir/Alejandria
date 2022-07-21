@@ -3,9 +3,9 @@ import Axios from "../../Services/ConexionAxios";
 
     function Rlibro() {
       const variables = {
+        libro: "",
         img: "",
         nombre: "",
-        id: "",
         autor: "",
       };
     
@@ -18,10 +18,10 @@ import Axios from "../../Services/ConexionAxios";
     
     //Crear método para guardar información
     const Guardar=async()=>{
-    Axios.post('/libro/guardar',{
+    Axios.post('/temas/guardar',{
+      libro:valores.libro,
      img:valores.img,
       nombre:valores.nombre,
-     id:valores.id,
      autor:valores.autor,
     }).then(()=>{
       console.log('Registro guardado con exito');
@@ -70,14 +70,14 @@ import Axios from "../../Services/ConexionAxios";
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">
-                  ID
+                  Libro
                 </label>
                 <input
                   type="text"
                   class="form-control"
                   id="exampleFormControlInput3"
-                  name="id"
-                  value={valores.id}
+                  name="libro"
+                  value={valores.libro}
                   onChange={cambioEstado}
                   placeholder="Introduzca su contraseña"
                 />

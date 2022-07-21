@@ -9,26 +9,29 @@ import {useNavigate} from "react-router-dom";
 
 function Biblioteca() {
 
-  const [biblioteca,setBiblioteca]=useState([]);
-  const [ubicacion, setUbicacion]=useState([]);
+ 
+  
+  const [ubicacion,setUbicacion]=useState([]); 
+ // const [biblioteca,setBiblioteca]=useState([]);  
 
 const navigate=useNavigate();
 
-  const Consultar=async()=>{
-    const consulta=await Axios.get('/libro/consultar');
-    setBiblioteca(consulta.data);
-   // console.log(consulta.data);
-  }
+const consultarUbicacion=async()=>{
+const respuesta=await Axios.get('/temas/consultar');
+setUbicacion(respuesta.data);
+}
 
-  const consultaId=async(id)=>{
-const buscar=await Axios.get(`/temas/consultarOne/${id}`);
-setUbicacion(buscar.data);
-  }
+//const consultar=async()=>{
+  //const respuesta=await Axios.get('/libro/consultar');
+  //setBiblioteca(respuesta.data);
+  //}
 
   
 
   useEffect(() => {
-   Consultar();
+
+   consultarUbicacion();
+   //consultar();
    
   }, [])
   
@@ -36,22 +39,20 @@ setUbicacion(buscar.data);
   
     <div className="container-fluid p-2 justify-content-center align-items-center  h-105 ">
       <div className="row">
-        {biblioteca.map((biblioteca) => {
+        {ubicacion.map((ubicacion) => {
               return(
-                <div className="col-md-3" key={biblioteca.id}>
+                <div className="col-md-3">
                     <div className="card text-center bg-dark animate__animated animate__fadeInUp "  >
                      
                       <div className="overflow">
-                      <img src={biblioteca.img} height="220" width="200" className="card-img-top"/>
+                      <img src={ubicacion.img} height="220" width="200" className="card-img-top"/>
                       </div>
             
                       <div className="card-body text-light">
-                            <h4 className="card-title">{biblioteca.nombre}</h4>
-                            <p className="card-text">{biblioteca.autor}</p>
+                            <h4 className="card-title">{ubicacion.nombre}</h4>
+                            <p className="card-text">{ubicacion.autor}</p>
                             <button type="button" class="btn btn-primary" onClick={()=>navigate(`/naruto/${ubicacion._id}`)}>
                             <i class="material-icons">Leer ...</i></button>
-                 
-                
 
                       </div>
                     </div>

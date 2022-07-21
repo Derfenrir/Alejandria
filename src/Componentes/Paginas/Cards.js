@@ -23,7 +23,7 @@ function Cards({url, text, title, imageSource}) {
                 }
                 </p>
                 <a href={url} className="btn btn-outline-secondary rounded-0 text-light" target="_blank">
-                    Leer mas
+                    Ultimas subidas
                 </a>
           </div>
         </div>
